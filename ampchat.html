@@ -1,0 +1,25 @@
+<head>
+  <title>ampchat</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+
+  {{> chatList}}
+  {{> chatInput}}
+</body>
+
+<template name="chatInput">
+  <form class="form-chat">
+  	<textarea class="form-control" id="text" name="text"></textarea>
+  	<button class="btn btn-primary">Send</button>
+  </form>
+</template>
+
+<template name="chatList">
+  <ul class="list-unstyled">
+  	{{#each chats}}
+  	  <li>{{createDate}} ({{relativeTime createDate}}): {{{ text }}}</li>
+  	{{/each}}
+  </ul>
+</template>
