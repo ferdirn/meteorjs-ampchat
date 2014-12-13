@@ -3,23 +3,33 @@
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-
+<div class="container">
+  <h1>Welcome to AmpChat</h1>
+  {{> showTime}}
   {{> chatList}}
   {{> chatInput}}
+</div>
 </body>
 
-<template name="chatInput">
-  <form class="form-chat">
-  	<textarea class="form-control" id="text" name="text"></textarea>
-  	<button class="btn btn-primary">Send</button>
-  </form>
+<template name="showTime">
+	<h5>{{waktu}}</h5>
 </template>
 
 <template name="chatList">
   <ul class="list-unstyled">
   	{{#each chats}}
-  	  <li>{{createDate}} ({{relativeTime createDate}}): {{{ text }}}</li>
+  	  <li><em>({{relativeTime createDate}})</em> : {{{ text }}}</li>
   	{{/each}}
   </ul>
+</template>
+
+<template name="chatInput">
+  <form class="form-chat" name="formChat">
+    <div class="row col-md-8">
+  	  <textarea class="form-control" id="text" name="text"></textarea>
+    </div>
+    <div class="col-md-2">
+  	  <button class="btn btn-primary btn-lg">Send</button>
+  	</div>
+  </form>
 </template>
